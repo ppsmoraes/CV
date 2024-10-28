@@ -2,6 +2,7 @@ import json
 import os
 from fpdf import FPDF
 
+
 class Curriculum:
     def __init__(self, filename=r'data\curriculum.json'):
         self.filename = filename
@@ -14,11 +15,7 @@ class Curriculum:
         return {'dados_pessoais': {}, 'experiencia': [], 'cursos': [], 'idiomas': [], 'habilidades': []}
 
     def set_dados_pessoais(self, nome, telefone, email):
-        self.data['dados_pessoais'] = {
-            'nome': nome,
-            'telefone': telefone,
-            'email': email
-        }
+        self.data['dados_pessoais'] = {'nome': nome, 'telefone': telefone, 'email': email}
         self.save_data()
 
     def save_data(self):
@@ -45,11 +42,10 @@ class Curriculum:
         pdf = FPDF()
         pdf.add_page()
 
-        # Definindo a cor de fundo (exemplo: azul claro)
-        pdf.set_fill_color(230, 230, 250)  # RGB para uma cor suave
+        pdf.set_fill_color(230, 230, 250)  # Definindo a cor de destaque
         pdf.rect(0, 0, 50, 297, 'F')  # (A4: 210x297 mm)
 
-        # Adiciona a imagem
+        # Adiciona a foto
         try:
             pdf.image(r'Image\PostgreSQL.png', x=10, y=8, w=33)  # x, y e largura em mm
         except Exception as e:
@@ -128,7 +124,7 @@ class Curriculum:
 
 def main():
     curriculum = Curriculum()
-    
+
     while True:
         print("\nMenu:")
         print("1. Adicionar Dados Pessoais")
@@ -143,7 +139,6 @@ def main():
 
         match choice:
             case '1':
-                # Configurar dados pessoais
                 nome = input("Digite seu nome: ")
                 telefone = input("Digite seu telefone: ")
                 email = input("Digite seu e-mail: ")
@@ -169,6 +164,7 @@ def main():
                 break
             case _:
                 print("Opção inválida! Tente novamente.")
+
 
 if __name__ == "__main__":
     main()
