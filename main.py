@@ -78,6 +78,13 @@ class Curriculum:
         pdf.cell(140, 10, txt=f'Telefone: {self.data['dados_pessoais'].get('telefone', 'N/A')}', ln=True)
         pdf.set_x(60)  # Move para a direita
         pdf.cell(140, 10, txt=f'E-mail: {self.data['dados_pessoais'].get('email', 'N/A')}', ln=True)
+        pdf.set_x(60)  # Move para a direita
+        github_link = pdf.add_link()
+        pdf.cell(140, 10, txt=f'Github: {self.data['dados_pessoais'].get('github', 'N/A')}', ln=True, link=github_link)
+        # TODO Ajustar o box do link
+        pdf.link(10, 30, 190, 10, 'https://github.com/ppsmoraes')
+        pdf.set_x(60)  # Move para a direita
+        pdf.cell(140, 10, txt=f'Linkedin: {self.data['dados_pessoais'].get('linkedin', 'N/A')}', ln=True)
         pdf.cell(140, 10, ln=True)  # Linha em branco
 
         # TODO Remover duplicatas
