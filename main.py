@@ -14,8 +14,8 @@ class Curriculum:
                 return json.load(file)
         return {'dados_pessoais': {}, 'experiencia': [], 'cursos': [], 'idiomas': [], 'habilidades': []}
 
-    def set_dados_pessoais(self, nome, telefone, email):
-        self.data['dados_pessoais'] = {'nome': nome, 'telefone': telefone, 'email': email}
+    def set_dados_pessoais(self, category, data):
+        self.data['dados_pessoais'][category] = data
         self.save_data()
 
     def save_data(self):
@@ -44,28 +44,28 @@ class Curriculum:
         pdf = FPDF()
         pdf.add_page()
 
-        pdf.set_fill_color(230, 230, 250)  # Definindo a cor de destaque
-        pdf.rect(0, 0, 50, 297, 'F')  # (A4: 210x297 mm)
+        pdf.set_fill_color(189, 236, 182)  # Definindo a cor de destaque
+        pdf.rect(0, 0, 55, 297, 'F')  # (A4: 210x297 mm)
 
         # Foto
         try:
-            pdf.image(r'Images\foto.png', x=10, y=8, w=33)  # x, y e largura em mm
+            pdf.image(r'Images\foto.png', x=5, y=8, w=45)  # x, y e largura em mm
         except Exception as e:
-            print(f"Erro ao adicionar a imagem: {e}")
+            print(f'Erro ao adicionar a imagem: {e}')
 
         # Nome
-        pdf.set_x(55)  # Move para a direita
-        pdf.set_font("Helvetica", size=16, style='B')
-        pdf.cell(140, 5, txt=f"{self.data['dados_pessoais'].get('nome', 'N/A')}", ln=True)
+        pdf.set_x(60)  # Move para a direita
+        pdf.set_font('Helvetica', size=16, style='B')
+        pdf.cell(140, 5, txt=f'{self.data['dados_pessoais'].get('nome', 'N/A')}', ln=True)
 
         # Vaga
-        pdf.set_x(55)  # Move para a direita
-        pdf.set_font("Helvetica", size=14)
+        pdf.set_x(60)  # Move para a direita
+        pdf.set_font('Helvetica', size=14)
         pdf.cell(140, 10, txt='Nome da vaga', ln=True)
 
         # Resumo
-        pdf.set_x(55)  # Move para a direita
-        pdf.set_font("Helvetica", size=12)
+        pdf.set_x(60)  # Move para a direita
+        pdf.set_font('Helvetica', size=12)
         pdf.multi_cell(
             140,
             5,
@@ -74,115 +74,157 @@ class Curriculum:
 
         # TODO aqui deve ir as tecnologias
 
-        pdf.set_x(55)  # Move para a direita
-        pdf.cell(140, 10, txt=f"Telefone: {self.data['dados_pessoais'].get('telefone', 'N/A')}", ln=True)
-        pdf.set_x(55)  # Move para a direita
-        pdf.cell(140, 10, txt=f"E-mail: {self.data['dados_pessoais'].get('email', 'N/A')}", ln=True)
+        pdf.set_x(60)  # Move para a direita
+        pdf.cell(140, 10, txt=f'Telefone: {self.data['dados_pessoais'].get('telefone', 'N/A')}', ln=True)
+        pdf.set_x(60)  # Move para a direita
+        pdf.cell(140, 10, txt=f'E-mail: {self.data['dados_pessoais'].get('email', 'N/A')}', ln=True)
         pdf.cell(140, 10, ln=True)  # Linha em branco
+
+        # TODO Remover duplicatas
 
         # Selecionar experiências
         if self.data['experiencia']:
-            print("Selecione as experiências para incluir no currículo:")
+            print('Selecione as experiências para incluir no currículo:')
             for i, exp in enumerate(self.data['experiencia']):
-                print(f"{i + 1}. {exp}")
-            selected_indices = input("Digite os números das experiências (separados por vírgula): ").split(',')
+                print(f'{i + 1}. {exp}')
+            selected_indices = input('Digite os números das experiências (separados por vírgula): ').split(',')
             selected_indices = [index.strip() for index in selected_indices if index.strip()]
             if selected_indices:
                 pdf.cell(200, 10, ln=True)  # Linha em branco
-                pdf.cell(200, 10, txt="Experiências:", ln=True)
+                pdf.set_font('Helvetica', size=12, style='B')
+                pdf.cell(200, 10, txt='Experiências', ln=True)
+                pdf.set_font('Helvetica', size=12)
                 for index in selected_indices:
                     if index.strip().isdigit() and 0 < int(index) <= len(self.data['experiencia']):
-                        pdf.cell(200, 10, txt=f"- {self.data['experiencia'][int(index) - 1]}", ln=True)
+                        pdf.cell(200, 10, txt=f'- {self.data['experiencia'][int(index) - 1]}', ln=True)
 
         # Selecionar cursos
         if self.data['cursos']:
-            print("Selecione os cursos para incluir no currículo:")
+            print('Selecione os cursos para incluir no currículo:')
             for i, course in enumerate(self.data['cursos']):
-                print(f"{i + 1}. {course}")
-            selected_indices = input("Digite os números dos cursos (separados por vírgula): ").split(',')
+                print(f'{i + 1}. {course}')
+            selected_indices = input('Digite os números dos cursos (separados por vírgula): ').split(',')
             selected_indices = [index.strip() for index in selected_indices if index.strip()]
             if selected_indices:
                 pdf.cell(200, 10, ln=True)  # Linha em branco
-                pdf.cell(200, 10, txt="Cursos:", ln=True)
+                pdf.set_font('Helvetica', size=12, style='B')
+                pdf.cell(200, 10, txt='Cursos', ln=True)
+                pdf.set_font('Helvetica', size=12)
                 for index in selected_indices:
                     if index.strip().isdigit() and 0 < int(index) <= len(self.data['cursos']):
-                        pdf.cell(200, 10, txt=f"- {self.data['cursos'][int(index) - 1]}", ln=True)
+                        pdf.cell(200, 10, txt=f'- {self.data['cursos'][int(index) - 1]}', ln=True)
 
         # Selecionar idiomas
         if self.data['idiomas']:
-            print("Selecione os idiomas para incluir no currículo:")
+            print('Selecione os idiomas para incluir no currículo:')
             for i, lang in enumerate(self.data['idiomas']):
-                print(f"{i + 1}. {lang}")
-            selected_indices = input("Digite os números dos idiomas (separados por vírgula): ").split(',')
+                print(f'{i + 1}. {lang}')
+            selected_indices = input('Digite os números dos idiomas (separados por vírgula): ').split(',')
             selected_indices = [index.strip() for index in selected_indices if index.strip()]
             if selected_indices:
                 pdf.cell(200, 10, ln=True)  # Linha em branco
-                pdf.cell(200, 10, txt="Idiomas:", ln=True)
+                pdf.set_font('Helvetica', size=12, style='B')
+                pdf.cell(200, 10, txt='Idiomas', ln=True)
+                pdf.set_font('Helvetica', size=12)
                 for index in selected_indices:
                     if index.strip().isdigit() and 0 < int(index) <= len(self.data['idiomas']):
-                        pdf.cell(200, 10, txt=f"- {self.data['idiomas'][int(index) - 1]}", ln=True)
+                        pdf.cell(200, 10, txt=f'- {self.data['idiomas'][int(index) - 1]}', ln=True)
 
         # Selecionar habilidades
         if self.data['habilidades']:
-            print("Selecione as habilidades para incluir no currículo:")
+            print('Selecione as habilidades para incluir no currículo:')
             for i, skill in enumerate(self.data['habilidades']):
-                print(f"{i + 1}. {skill}")
-            selected_indices = input("Digite os números das habilidades (separados por vírgula): ").split(',')
+                print(f'{i + 1}. {skill}')
+            selected_indices = input('Digite os números das habilidades (separados por vírgula): ').split(',')
             selected_indices = [index.strip() for index in selected_indices if index.strip()]
             if selected_indices:
                 pdf.cell(200, 10, ln=True)  # Linha em branco
-                pdf.cell(200, 10, txt="Habilidades:", ln=True)
+                pdf.set_font('Helvetica', size=12, style='B')
+                pdf.cell(200, 10, txt='Habilidades', ln=True)
+                pdf.set_font('Helvetica', size=12)
                 for index in selected_indices:
                     if index.strip().isdigit() and 0 < int(index) <= len(self.data['habilidades']):
-                        pdf.cell(200, 10, txt=f"- {self.data['habilidades'][int(index) - 1]}", ln=True)
+                        pdf.cell(200, 10, txt=f'- {self.data['habilidades'][int(index) - 1]}', ln=True)
 
-        pdf.output("curriculo.pdf")
-        print("PDF gerado com sucesso!")
+        pdf.output('curriculo.pdf')
+        print('PDF gerado com sucesso!')
 
 
 def main():
     curriculum = Curriculum()
 
     while True:
-        print("\nMenu:")
-        print("1. Adicionar Dados Pessoais")
-        print("2. Adicionar Experiência")
-        print("3. Adicionar Curso")
-        print("4. Adicionar Idioma")
-        print("5. Adicionar Habilidade")
-        print("6. Gerar PDF")
-        print("7. Sair")
+        print('\nMenu:')
+        print('1. Adicionar Dados Pessoais')
+        print('2. Adicionar Experiência')
+        print('3. Adicionar Curso')
+        print('4. Adicionar Idioma')
+        print('5. Adicionar Habilidade')
+        print('6. Gerar PDF')
+        print('7. Sair')
 
-        choice = input("Escolha uma opção: ")
+        choice = input('Escolha uma opção: ')
 
         match choice:
             case '1':
-                nome = input("Digite seu nome: ")
-                telefone = input("Digite seu telefone: ")
-                email = input("Digite seu e-mail: ")
-                curriculum.set_dados_pessoais(nome, telefone, email)
+                while True:
+                    print('\nSubmenu "Adicionar Dados Pessoais":')
+                    print('1. Adicionar Nome')
+                    print('2. Adicionar Telefone')
+                    print('3. Adicionar Email')
+                    print('4. Adicionar Github')
+                    print('5. Adicionar Linkedin')
+                    print('6. Adicionar Portifólio')
+                    print('7. Voltar para o menu principal')
+
+                    category = input('Escolha uma opção: ')
+
+                    # TODO Remover essas duplicatas
+                    match category:
+                        case '1':
+                            nome = input('Digite seu nome: ')
+                            curriculum.set_dados_pessoais('nome', nome)
+                        case '2':
+                            telefone = input('Digite seu telefone: ')
+                            curriculum.set_dados_pessoais('telefone', telefone)
+                        case '3':
+                            email = input('Digite seu e-mail: ')
+                            curriculum.set_dados_pessoais('email', email)
+                        case '4':
+                            github = input('Digite seu github: ')
+                            curriculum.set_dados_pessoais('github', github)
+                        case '5':
+                            linkedin = input('Digite seu linkedin: ')
+                            curriculum.set_dados_pessoais('linkedin', linkedin)
+                        case '6':
+                            portifolio = input('Digite seu portifolio: ')
+                            curriculum.set_dados_pessoais('portifolio', portifolio)
+                        case '7':
+                            break
+                        case _:
+                            print('Opção inválida! Tente novamente.')
             case '2':
-                experience = input("Digite a experiência de trabalho: ")
+                experience = input('Digite a experiência de trabalho: ')
                 curriculum.add_experience(experience)
             case '3':
-                course = input("Digite o nome do curso: ")
+                course = input('Digite o nome do curso: ')
                 curriculum.add_course(course)
             case '4':
-                language = input("Digite o idioma: ")
+                language = input('Digite o idioma: ')
                 curriculum.add_language(language)
             case '5':
-                skill = input("Digite a habilidade: ")
+                skill = input('Digite a habilidade: ')
                 curriculum.add_skill(skill)
             case '6':
                 curriculum.generate_pdf()
-                print("Saindo...")
+                print('Saindo...')
                 break
             case '7':
-                print("Saindo...")
+                print('Saindo...')
                 break
             case _:
-                print("Opção inválida! Tente novamente.")
+                print('Opção inválida! Tente novamente.')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
