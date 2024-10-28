@@ -19,6 +19,8 @@ class Curriculum:
         self.save_data()
 
     def save_data(self):
+        if not os.path.exists('data'):
+            os.makedirs('data')
         with open(self.filename, 'w') as file:
             json.dump(self.data, file)
 
@@ -45,22 +47,38 @@ class Curriculum:
         pdf.set_fill_color(230, 230, 250)  # Definindo a cor de destaque
         pdf.rect(0, 0, 50, 297, 'F')  # (A4: 210x297 mm)
 
-        # Adiciona a foto
+        # Foto
         try:
-            pdf.image(r'Image\PostgreSQL.png', x=10, y=8, w=33)  # x, y e largura em mm
+            pdf.image(r'Images\foto.png', x=10, y=8, w=33)  # x, y e largura em mm
         except Exception as e:
             print(f"Erro ao adicionar a imagem: {e}")
 
-        pdf.set_font("Arial", size=12)
+        # Nome
+        pdf.set_x(55)  # Move para a direita
+        pdf.set_font("Helvetica", size=16, style='B')
+        pdf.cell(140, 5, txt=f"{self.data['dados_pessoais'].get('nome', 'N/A')}", ln=True)
 
-        # Adiciona os dados pessoais
+        # Vaga
         pdf.set_x(55)  # Move para a direita
-        pdf.cell(200, 10, txt=f"Nome: {self.data['dados_pessoais'].get('nome', 'N/A')}", ln=True)
+        pdf.set_font("Helvetica", size=14)
+        pdf.cell(140, 10, txt='Nome da vaga', ln=True)
+
+        # Resumo
         pdf.set_x(55)  # Move para a direita
-        pdf.cell(200, 10, txt=f"Telefone: {self.data['dados_pessoais'].get('telefone', 'N/A')}", ln=True)
+        pdf.set_font("Helvetica", size=12)
+        pdf.multi_cell(
+            140,
+            5,
+            txt='Esse é um resumo. Aqui você deve deixar uma mensagem personalizada para cada currículo gerado baseado na vaga a qual esse currículo será aplicado.',
+        )
+
+        # TODO aqui deve ir as tecnologias
+
         pdf.set_x(55)  # Move para a direita
-        pdf.cell(200, 10, txt=f"E-mail: {self.data['dados_pessoais'].get('email', 'N/A')}", ln=True)
-        pdf.cell(200, 10, ln=True)  # Linha em branco
+        pdf.cell(140, 10, txt=f"Telefone: {self.data['dados_pessoais'].get('telefone', 'N/A')}", ln=True)
+        pdf.set_x(55)  # Move para a direita
+        pdf.cell(140, 10, txt=f"E-mail: {self.data['dados_pessoais'].get('email', 'N/A')}", ln=True)
+        pdf.cell(140, 10, ln=True)  # Linha em branco
 
         # Selecionar experiências
         if self.data['experiencia']:
