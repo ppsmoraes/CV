@@ -4,7 +4,7 @@ from fpdf import FPDF
 
 
 class Curriculum:
-    def __init__(self, filename=r'data\curriculum.json'):
+    def __init__(self, filename=r'data/curriculum.json'):
         self.filename = filename
         self.data = self.load_data()
 
@@ -53,28 +53,28 @@ class Curriculum:
             pdf.image(r'Images\foto.png', x=5, y=8, w=45)  # x, y e largura em mm
 
         largura_coluna: float = 55 - 2 * pdf.l_margin
-        pdf.set_y(60)  # Move para baixo da foto
-        pdf.set_font('Helvetica', size=12, style='B')
-        pdf.cell(largura_coluna, 10, 'Contato', ln=True, align='C')
 
         def add_contato(subcategory: str, use_link: bool = False):
-            if subcategory not in self.data['Contato']:
-                raise f'{subcategory} não está nos dados de Contato.'
-            if os.path.exists(rf'Images\{subcategory}.png'):
-                pdf.image(rf'Images\{subcategory}.png', x=5, y=pdf.get_y() + 2.5, h=5)  # y centraliza com o texto
-            if use_link:
-                _font_style: str = 'U'
-                _color: tuple[int, int, int] = 1, 75, 160
-                _link: str = f'https://{self.data['Contato'].get(subcategory)}'
-            else:
-                _font_style: str = ''
-                _color: tuple[int, int, int] = 0, 0, 0
-                _link: str = ''
-            pdf.set_font('Helvetica', size=10, style=_font_style)
-            pdf.set_text_color(*_color)
-            pdf.cell(largura_coluna, 10, self.data['Contato'].get(subcategory), ln=True, link=_link)
+            if subcategory in self.data['Contato']:
+                if os.path.exists(rf'Images\{subcategory}.png'):
+                    pdf.image(rf'Images\{subcategory}.png', x=5, y=pdf.get_y() + 2.5, h=5)  # y centraliza com o texto
+                if use_link:
+                    _font_style: str = 'U'
+                    _color: tuple[int, int, int] = 1, 75, 160
+                    _link: str = f'https://{self.data['Contato'].get(subcategory)}'
+                else:
+                    _font_style: str = ''
+                    _color: tuple[int, int, int] = 0, 0, 0
+                    _link: str = ''
+                pdf.set_font('Helvetica', size=10, style=_font_style)
+                pdf.set_text_color(*_color)
+                pdf.cell(largura_coluna, 10, self.data['Contato'].get(subcategory), ln=True, link=_link)
 
         if 'Contato' in self.data:
+            pdf.set_y(60)  # Move para baixo da foto
+            pdf.set_font('Helvetica', size=12, style='B')
+            pdf.cell(largura_coluna, 10, 'Contato', ln=True, align='C')
+
             add_contato('Github', True)
             add_contato('Linkedin', True)
             add_contato('Email')
@@ -85,6 +85,7 @@ class Curriculum:
         # Nome
         pdf.set_y(pdf.t_margin)  # Topo da página
         pdf.set_x(60)  # Move para a direita
+        pdf.set_text_color(0,0,0)
         pdf.set_font('Helvetica', size=16, style='B')
         pdf.cell(140, 5, self.data.get('Nome', 'Fulano da Silva'), ln=True)
 
@@ -122,6 +123,7 @@ class Curriculum:
                 tecnologies = ', '.join([self.data['Tecnologias'][int(i) - 1] for i in selected_indices])
                 pdf.cell(140, 10, tecnologies, ln=True)
 
+        # Demais seções
         def write_section(section):
             if section in self.data:
                 print(f'Selecione os(as) {section} para incluir no currículo:')
@@ -156,7 +158,7 @@ def main():
         print('2. Gerar PDF e sair')
         print('3. Sair')
 
-        choice = input('Escolha uma opção: ')
+        choice = input('Escolha uma opção: ').strip()
 
         match choice:
             case '1':
@@ -165,9 +167,11 @@ def main():
                     print(f'Categorias: {[key for key in curriculum.data.keys()]}')
                     print('Digite "back" para voltar para o menu principal')
 
-                    category = input('Escolha uma categoria existente ou crie uma nova: ')
+                    category = input('Escolha uma categoria existente ou crie uma nova: ').strip()
 
                     match category:
+                        case '':
+                            print('Opção inválida! Tente novamente.')
                         case 'back':
                             break
                         case _:
@@ -202,7 +206,7 @@ def main():
                                     )
                                     match add_subcategory.lower():
                                         case 's':
-                                            subcategory = input('Difite a nova subcategoria: ')
+                                            subcategory = input('Digite a nova subcategoria: ')
                                             match subcategory.strip():
                                                 case 'back':
                                                     break
