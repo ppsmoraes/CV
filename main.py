@@ -68,7 +68,13 @@ class Curriculum:
                     _link: str = ''
                 pdf.set_font('Helvetica', size=10, style=_font_style)
                 pdf.set_text_color(*_color)
-                pdf.cell(largura_coluna, 10, self.data['Contato'].get(subcategory), ln=True, link=_link)
+                pdf.cell(
+                    largura_coluna,
+                    10,
+                    self.data['Contato'].get(subcategory),
+                    ln=True,
+                    link=_link,
+                )
 
         if 'Contato' in self.data:
             pdf.set_y(60)  # Move para baixo da foto
@@ -85,7 +91,7 @@ class Curriculum:
         # Nome
         pdf.set_y(pdf.t_margin)  # Topo da página
         pdf.set_x(60)  # Move para a direita
-        pdf.set_text_color(0,0,0)
+        pdf.set_text_color(0, 0, 0)
         pdf.set_font('Helvetica', size=16, style='B')
         pdf.cell(140, 5, self.data.get('Nome', 'Fulano da Silva'), ln=True)
 
@@ -109,9 +115,7 @@ class Curriculum:
             print(f'Selecione as tecnologias para incluir no currículo:')
             for i, item in enumerate(self.data['Tecnologias']):
                 print(f'{i + 1}. {item}')
-            selected_indices = input(f'Digite os números das tecnologias em ordem (separados por vírgula): ').split(
-                ','
-            )
+            selected_indices = input(f'Digite os números das tecnologias em ordem (separados por vírgula): ').split(',')
             selected_indices = [index.strip() for index in selected_indices if index.strip()]
             if selected_indices:
                 pdf.set_font('Helvetica', size=12, style='B')
@@ -198,7 +202,11 @@ def main():
                                                 break
                                             case _:
                                                 data = input(f'Digite seu(a) {subcategory}: ')
-                                                curriculum.add_data(category, data, subcategory=subcategory)
+                                                curriculum.add_data(
+                                                    category,
+                                                    data,
+                                                    subcategory=subcategory,
+                                                )
                                 else:
                                     print('Digite "back" para voltar para ao menu anterior')
                                     add_subcategory = input(
@@ -212,7 +220,11 @@ def main():
                                                     break
                                                 case _:
                                                     data = input(f'Digite seu(a) {subcategory}: ')
-                                                    curriculum.add_data(category, data, subcategory=subcategory)
+                                                    curriculum.add_data(
+                                                        category,
+                                                        data,
+                                                        subcategory=subcategory,
+                                                    )
                                         case 'n':
                                             data = input(f'Digite seu(a) {category}: ')
                                             match data:
