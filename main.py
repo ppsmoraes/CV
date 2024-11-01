@@ -52,11 +52,6 @@ class Curriculum:
 
                 if key.lower() == 'sair':
                     break
-
-                # if key in data:
-                #     print('Valores atuais nesta chave:')
-                #     for k, v in data[key]:
-                #         print(f'  {k}: {v}')
                 
                 value = input(f'Digite o valor para {key} (ou "objeto" para adicionar um novo nível): ')
                 if value.lower() == 'objeto':
@@ -77,25 +72,6 @@ class Curriculum:
         add_level(self.data)
         self.save_data()
         print('Dados adicionados com sucesso!')
-
-    # def add_data(self, category: str, data: str, *, subcategory: str | bool = False) -> None:
-    #     if not subcategory:
-    #         if category not in self.data:
-    #             self.data[category] = data
-    #         else:
-    #             if isinstance(self.data[category], str):
-    #                 self.data[category] = [self.data[category]]
-    #             self.data[category].append(data)
-    #     else:
-    #         if category not in self.data:
-    #             self.data[category] = dict()
-    #         if subcategory not in self.data[category]:
-    #             self.data[category][subcategory] = data
-    #         else:
-    #             if isinstance(self.data[category][subcategory], str):
-    #                 self.data[category][subcategory] = [self.data[category][subcategory]]
-    #             self.data[category][subcategory].append(data)
-    #     self.save_data()
 
     def generate_pdf(self) -> None:
         pdf: FPDF = FPDF()
@@ -185,6 +161,31 @@ class Curriculum:
                 tecnologies = ', '.join([self.data['Tecnologias'][int(i) - 1] for i in selected_indices])
                 pdf.cell(140, 10, tecnologies, ln=True)
 
+        # Experiências
+        if 'Experiências' in self.data:
+            print(f'Selecione as experiências para incluir no currículo:')
+            id_xp = {i+1: item for i,item in enumerate(self.data['Experiências'])}
+            print(id_xp)
+            selected_indices = input(f'Digite os números das experiências (separados por vírgula): ').split(',')
+            selected_indices = [int(index.strip()) for index in selected_indices if index.strip()]
+            if selected_indices:
+                pdf.set_y(pdf.get_y() + 5)
+                pdf.set_x(60)
+                pdf.set_font('Helvetica', size=12, style='B')
+                pdf.cell(140, 10, 'Experiências', ln=True)
+                for index in selected_indices:
+                    pdf.set_x(60)
+                    pdf.set_font('Helvetica', size=12)
+                    pdf.cell(140, 5, f'{self.data['Experiências'][id_xp[index]]['Nome']} - {self.data['Experiências'][id_xp[index]]['Empresa']}', ln=True)
+                    pdf.set_x(60)
+                    pdf.set_font('Helvetica', size=12, style='I')
+                    pdf.cell(140, 5, f'{self.data['Experiências'][id_xp[index]]['Período']}', ln=True)
+                    pdf.set_x(60)
+                    pdf.set_font('Helvetica', size=10)
+                    pdf.multi_cell(140, 5, f'{self.data['Experiências'][id_xp[index]]['Resumo']}')
+                    pdf.set_y(pdf.get_y() + 5)
+        
+
         # Demais seções
         def write_section(section):
             if section in self.data:
@@ -201,9 +202,8 @@ class Curriculum:
                     pdf.set_font('Helvetica', size=12)
                     for index in selected_indices:
                         pdf.set_x(60)
-                        pdf.cell(200, 10, f'- {self.data[section][int(index) - 1]}', ln=True)
+                        pdf.cell(140, 10, f'- {self.data[section][int(index) - 1]}', ln=True)
 
-        write_section('Experiências')
         write_section('Idiomas')
         write_section('Cursos')
 
@@ -225,74 +225,6 @@ def main():
         match choice:
             case '1':
                 curriculum.add_data()
-                # while True:
-                #     print('\nSubmenu 'Adicionar dados':')
-                #     print(f'Categorias: {[key for key in curriculum.data.keys()]}')
-                #     print('Digite "back" para voltar para o menu principal')
-
-                #     category = input('Escolha uma categoria existente ou crie uma nova: ').strip()
-
-                #     match category:
-                #         case '':
-                #             print('Opção inválida! Tente novamente.')
-                #         case 'back':
-                #             break
-                #         case _:
-                #             while True:
-                #                 print(f'\nSubmenu 'Adicionar {category}':')
-                #                 if category in curriculum.data:
-                #                     if isinstance(curriculum.data[category], str) or isinstance(
-                #                         curriculum.data[category], list
-                #                     ):
-                #                         print(f'Dados: {curriculum.data[category]}')
-                #                         print('Digite "back" para voltar para ao menu anterior')
-                #                         data = input(f'Digite seu(a) {category}: ')
-                #                         match data:
-                #                             case 'back':
-                #                                 break
-                #                             case _:
-                #                                 curriculum.add_data(category, data)
-                #                     else:
-                #                         print(f'Subcategorias: {[key for key in curriculum.data[category]]}')
-                #                         print('Digite "back" para voltar para ao menu anterior')
-                #                         subcategory = input('Escolha uma subcategoria ou crie uma nova: ')
-                #                         match subcategory.strip():
-                #                             case 'back':
-                #                                 break
-                #                             case _:
-                #                                 data = input(f'Digite seu(a) {subcategory}: ')
-                #                                 curriculum.add_data(
-                #                                     category,
-                #                                     data,
-                #                                     subcategory=subcategory,
-                #                                 )
-                #                 else:
-                #                     print('Digite "back" para voltar para ao menu anterior')
-                #                     add_subcategory = input(
-                #                         f'Deseja adicionar subcategorias para os(as) {category}? (S/N) '
-                #                     )
-                #                     match add_subcategory.lower():
-                #                         case 's':
-                #                             subcategory = input('Digite a nova subcategoria: ')
-                #                             match subcategory.strip():
-                #                                 case 'back':
-                #                                     break
-                #                                 case _:
-                #                                     data = input(f'Digite seu(a) {subcategory}: ')
-                #                                     curriculum.add_data(
-                #                                         category,
-                #                                         data,
-                #                                         subcategory=subcategory,
-                #                                     )
-                #                         case 'n':
-                #                             data = input(f'Digite seu(a) {category}: ')
-                #                             match data:
-                #                                 case 'back':
-                #                                     break
-                #                                 case _:
-                #                                     curriculum.add_data(category, data)
-                #                         case _:
-                #                             print('Opção inválida! Tente novamente.')
             case '2':
                 curriculum.generate_pdf()
                 print('Saindo...')
