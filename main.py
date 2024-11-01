@@ -18,26 +18,84 @@ class Curriculum:
         if not os.path.exists('data'):
             os.makedirs('data')
         with open(self.filename, 'w') as file:
-            json.dump(self.data, file)
+            json.dump(self.data, file, indent=4)
 
-    def add_data(self, category: str, data: str, *, subcategory: str | bool = False) -> None:
-        if not subcategory:
-            if category not in self.data:
-                self.data[category] = data
-            else:
-                if isinstance(self.data[category], str):
-                    self.data[category] = [self.data[category]]
-                self.data[category].append(data)
-        else:
-            if category not in self.data:
-                self.data[category] = dict()
-            if subcategory not in self.data[category]:
-                self.data[category][subcategory] = data
-            else:
-                if isinstance(self.data[category][subcategory], str):
-                    self.data[category][subcategory] = [self.data[category][subcategory]]
-                self.data[category][subcategory].append(data)
+    def add_data(self):
+
+        def add_level(data, level='Raiz'):
+
+            def check_n_update(key, data, new_value):
+                if key in data:
+                    if isinstance(data[key], dict):
+                        if isinstance(new_value, dict):
+                            data[key] = new_value
+                        else:
+                            data[key][new_value] = []
+                    elif isinstance(data[key], list):
+                        data[key].append(new_value)
+                    else:
+                        data[key] = [data[key], new_value]
+                else:
+                    data[key] = new_value
+
+            while True:
+                print(f'\nVocê está no nível: {level}')
+                if data:
+                    print('Valores atuais nesta chave:')
+                    if isinstance(data, dict):
+                        for k, v in data.items():
+                            print(f'  {k}: {v}')
+                    else:
+                        print(data)
+
+                key = input(f'Digite a chave para {level} (ou "sair" para finalizar): ')
+
+                if key.lower() == 'sair':
+                    break
+
+                # if key in data:
+                #     print('Valores atuais nesta chave:')
+                #     for k, v in data[key]:
+                #         print(f'  {k}: {v}')
+                
+                value = input(f'Digite o valor para {key} (ou "objeto" para adicionar um novo nível): ')
+                if value.lower() == 'objeto':
+                    # Cria um novo dicionário para o próximo nível
+                    if key in data:
+                        if isinstance(data[key], dict):
+                            new_dict = data[key]
+                        else:
+                            print('\033[93m' + 'Não podemos adicionar um novo nível em um objeto com valores finais.' + '\033[0m')
+                            break
+                    else:
+                        new_dict = {}
+                    add_level(new_dict, key)  # Chama a função recursivamente
+                    check_n_update(key, data, new_dict)
+                else:
+                    check_n_update(key, data, value)
+
+        add_level(self.data)
         self.save_data()
+        print('Dados adicionados com sucesso!')
+
+    # def add_data(self, category: str, data: str, *, subcategory: str | bool = False) -> None:
+    #     if not subcategory:
+    #         if category not in self.data:
+    #             self.data[category] = data
+    #         else:
+    #             if isinstance(self.data[category], str):
+    #                 self.data[category] = [self.data[category]]
+    #             self.data[category].append(data)
+    #     else:
+    #         if category not in self.data:
+    #             self.data[category] = dict()
+    #         if subcategory not in self.data[category]:
+    #             self.data[category][subcategory] = data
+    #         else:
+    #             if isinstance(self.data[category][subcategory], str):
+    #                 self.data[category][subcategory] = [self.data[category][subcategory]]
+    #             self.data[category][subcategory].append(data)
+    #     self.save_data()
 
     def generate_pdf(self) -> None:
         pdf: FPDF = FPDF()
@@ -166,74 +224,75 @@ def main():
 
         match choice:
             case '1':
-                while True:
-                    print('\nSubmenu "Adicionar dados":')
-                    print(f'Categorias: {[key for key in curriculum.data.keys()]}')
-                    print('Digite "back" para voltar para o menu principal')
+                curriculum.add_data()
+                # while True:
+                #     print('\nSubmenu 'Adicionar dados':')
+                #     print(f'Categorias: {[key for key in curriculum.data.keys()]}')
+                #     print('Digite "back" para voltar para o menu principal')
 
-                    category = input('Escolha uma categoria existente ou crie uma nova: ').strip()
+                #     category = input('Escolha uma categoria existente ou crie uma nova: ').strip()
 
-                    match category:
-                        case '':
-                            print('Opção inválida! Tente novamente.')
-                        case 'back':
-                            break
-                        case _:
-                            while True:
-                                print(f'\nSubmenu "Adicionar {category}":')
-                                if category in curriculum.data:
-                                    if isinstance(curriculum.data[category], str) or isinstance(
-                                        curriculum.data[category], list
-                                    ):
-                                        print(f'Dados: {curriculum.data[category]}')
-                                        print('Digite "back" para voltar para ao menu anterior')
-                                        data = input(f'Digite seu(a) {category}: ')
-                                        match data:
-                                            case 'back':
-                                                break
-                                            case _:
-                                                curriculum.add_data(category, data)
-                                    else:
-                                        print(f'Subcategorias: {[key for key in curriculum.data[category]]}')
-                                        print('Digite "back" para voltar para ao menu anterior')
-                                        subcategory = input('Escolha uma subcategoria ou crie uma nova: ')
-                                        match subcategory.strip():
-                                            case 'back':
-                                                break
-                                            case _:
-                                                data = input(f'Digite seu(a) {subcategory}: ')
-                                                curriculum.add_data(
-                                                    category,
-                                                    data,
-                                                    subcategory=subcategory,
-                                                )
-                                else:
-                                    print('Digite "back" para voltar para ao menu anterior')
-                                    add_subcategory = input(
-                                        f'Deseja adicionar subcategorias para os(as) {category}? (S/N) '
-                                    )
-                                    match add_subcategory.lower():
-                                        case 's':
-                                            subcategory = input('Digite a nova subcategoria: ')
-                                            match subcategory.strip():
-                                                case 'back':
-                                                    break
-                                                case _:
-                                                    data = input(f'Digite seu(a) {subcategory}: ')
-                                                    curriculum.add_data(
-                                                        category,
-                                                        data,
-                                                        subcategory=subcategory,
-                                                    )
-                                        case 'n':
-                                            data = input(f'Digite seu(a) {category}: ')
-                                            match data:
-                                                case 'back':
-                                                    break
-                                                case _:
-                                                    curriculum.add_data(category, data)
-                                        case _:
-                                            print('Opção inválida! Tente novamente.')
+                #     match category:
+                #         case '':
+                #             print('Opção inválida! Tente novamente.')
+                #         case 'back':
+                #             break
+                #         case _:
+                #             while True:
+                #                 print(f'\nSubmenu 'Adicionar {category}':')
+                #                 if category in curriculum.data:
+                #                     if isinstance(curriculum.data[category], str) or isinstance(
+                #                         curriculum.data[category], list
+                #                     ):
+                #                         print(f'Dados: {curriculum.data[category]}')
+                #                         print('Digite "back" para voltar para ao menu anterior')
+                #                         data = input(f'Digite seu(a) {category}: ')
+                #                         match data:
+                #                             case 'back':
+                #                                 break
+                #                             case _:
+                #                                 curriculum.add_data(category, data)
+                #                     else:
+                #                         print(f'Subcategorias: {[key for key in curriculum.data[category]]}')
+                #                         print('Digite "back" para voltar para ao menu anterior')
+                #                         subcategory = input('Escolha uma subcategoria ou crie uma nova: ')
+                #                         match subcategory.strip():
+                #                             case 'back':
+                #                                 break
+                #                             case _:
+                #                                 data = input(f'Digite seu(a) {subcategory}: ')
+                #                                 curriculum.add_data(
+                #                                     category,
+                #                                     data,
+                #                                     subcategory=subcategory,
+                #                                 )
+                #                 else:
+                #                     print('Digite "back" para voltar para ao menu anterior')
+                #                     add_subcategory = input(
+                #                         f'Deseja adicionar subcategorias para os(as) {category}? (S/N) '
+                #                     )
+                #                     match add_subcategory.lower():
+                #                         case 's':
+                #                             subcategory = input('Digite a nova subcategoria: ')
+                #                             match subcategory.strip():
+                #                                 case 'back':
+                #                                     break
+                #                                 case _:
+                #                                     data = input(f'Digite seu(a) {subcategory}: ')
+                #                                     curriculum.add_data(
+                #                                         category,
+                #                                         data,
+                #                                         subcategory=subcategory,
+                #                                     )
+                #                         case 'n':
+                #                             data = input(f'Digite seu(a) {category}: ')
+                #                             match data:
+                #                                 case 'back':
+                #                                     break
+                #                                 case _:
+                #                                     curriculum.add_data(category, data)
+                #                         case _:
+                #                             print('Opção inválida! Tente novamente.')
             case '2':
                 curriculum.generate_pdf()
                 print('Saindo...')
