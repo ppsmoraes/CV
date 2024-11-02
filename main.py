@@ -52,7 +52,7 @@ class Curriculum:
 
                 if key.lower() == 'sair':
                     break
-                
+
                 value = input(f'Digite o valor para {key} (ou "objeto" para adicionar um novo nível): ')
                 if value.lower() == 'objeto':
                     # Cria um novo dicionário para o próximo nível
@@ -60,7 +60,11 @@ class Curriculum:
                         if isinstance(data[key], dict):
                             new_dict = data[key]
                         else:
-                            print('\033[93m' + 'Não podemos adicionar um novo nível em um objeto com valores finais.' + '\033[0m')
+                            print(
+                                '\033[93m'
+                                + 'Não podemos adicionar um novo nível em um objeto com valores finais.'
+                                + '\033[0m'
+                            )
                             break
                     else:
                         new_dict = {}
@@ -137,20 +141,19 @@ class Curriculum:
 
         # Resumo
         pdf.set_x(60)
-        pdf.set_font('Helvetica', size=12)
-        pdf.multi_cell(
-            140,
-            5,
-            'Esse é um resumo. Aqui você deve deixar uma mensagem personalizada para cada currículo gerado baseado na vaga a qual esse currículo será aplicado.',
-        )
+        pdf.set_font('Helvetica', size=10)
+        pdf.multi_cell(140, 5, self.data['Resumo'])
 
         # Tecnologias
         if 'Tecnologias' in self.data:
             print(f'Selecione as tecnologias para incluir no currículo:')
-            for i, item in enumerate(self.data['Tecnologias']):
-                print(f'{i + 1}. {item}')
-            selected_indices = input(f'Digite os números das tecnologias em ordem (separados por vírgula): ').split(',')
-            selected_indices = [index.strip() for index in selected_indices if index.strip()]
+            id_tec = {i + 1: item for i, item in enumerate(self.data['Tecnologias'])}
+            for key, value in id_tec.items():
+                print(f'{key}. {value}')
+            selected_indices = input(f'Digite os números das tecnologias em ordem (separados por vírgula): ').split(
+                ','
+            )
+            selected_indices = [int(index.strip()) for index in selected_indices if index.strip()]
             if selected_indices:
                 pdf.set_font('Helvetica', size=12, style='B')
                 pdf.set_y(pdf.get_y() + 5)
@@ -158,14 +161,15 @@ class Curriculum:
                 pdf.cell(140, 10, 'Tecnologias', ln=True)
                 pdf.set_font('Helvetica', size=12)
                 pdf.set_x(60)
-                tecnologies = ', '.join([self.data['Tecnologias'][int(i) - 1] for i in selected_indices])
+                tecnologies = ', '.join([id_tec[i] for i in selected_indices])
                 pdf.cell(140, 10, tecnologies, ln=True)
 
         # Experiências
         if 'Experiências' in self.data:
             print(f'Selecione as experiências para incluir no currículo:')
-            id_xp = {i+1: item for i,item in enumerate(self.data['Experiências'])}
-            print(id_xp)
+            id_xp = {i + 1: item for i, item in enumerate(self.data['Experiências'])}
+            for key, value in id_xp.items():
+                print(f'{key}. {value}')
             selected_indices = input(f'Digite os números das experiências (separados por vírgula): ').split(',')
             selected_indices = [int(index.strip()) for index in selected_indices if index.strip()]
             if selected_indices:
@@ -176,36 +180,59 @@ class Curriculum:
                 for index in selected_indices:
                     pdf.set_x(60)
                     pdf.set_font('Helvetica', size=12)
-                    pdf.cell(140, 5, f'{self.data['Experiências'][id_xp[index]]['Nome']} - {self.data['Experiências'][id_xp[index]]['Empresa']}', ln=True)
+                    pdf.cell(140, 5, self.data['Experiências'][id_xp[index]]['Nome'], ln=True)
                     pdf.set_x(60)
                     pdf.set_font('Helvetica', size=12, style='I')
-                    pdf.cell(140, 5, f'{self.data['Experiências'][id_xp[index]]['Período']}', ln=True)
+                    pdf.cell(
+                        140,
+                        5,
+                        f'{self.data['Experiências'][id_xp[index]]['Período']} - {self.data['Experiências'][id_xp[index]]['Empresa']}',
+                        ln=True,
+                    )
                     pdf.set_x(60)
                     pdf.set_font('Helvetica', size=10)
-                    pdf.multi_cell(140, 5, f'{self.data['Experiências'][id_xp[index]]['Resumo']}')
+                    pdf.multi_cell(140, 5, self.data['Experiências'][id_xp[index]]['Resumo'])
                     pdf.set_y(pdf.get_y() + 5)
-        
 
-        # Demais seções
-        def write_section(section):
-            if section in self.data:
-                print(f'Selecione os(as) {section} para incluir no currículo:')
-                for i, item in enumerate(self.data[section]):
-                    print(f'{i + 1}. {item}')
-                selected_indices = input(f'Digite os números dos(as) {section} (separados por vírgula): ').split(',')
-                selected_indices = [index.strip() for index in selected_indices if index.strip()]
-                if selected_indices:
-                    pdf.set_font('Helvetica', size=12, style='B')
-                    pdf.set_y(pdf.get_y() + 5)
-                    pdf.set_x(60)
-                    pdf.cell(140, 10, section, ln=True)
+        # Idiomas
+        if 'Idiomas' in self.data:
+            print('Selecione os Idiomas para incluir no currículo:')
+            id_language = {i + 1: item for i, item in enumerate(self.data['Idiomas'])}
+            for key, value in id_language.items():
+                print(f'{key}. {value}')
+            selected_indices = input('Digite os números dos idiomas (separados por vírgula): ').split(',')
+            selected_indices = [int(index.strip()) for index in selected_indices if index.strip()]
+            if selected_indices:
+                pdf.set_font('Helvetica', size=12, style='B')
+                pdf.set_y(pdf.get_y() + 5)
+                pdf.set_x(60)
+                pdf.cell(140, 10, 'Idiomas', ln=True)
+                for index in selected_indices:
                     pdf.set_font('Helvetica', size=12)
-                    for index in selected_indices:
-                        pdf.set_x(60)
-                        pdf.cell(140, 10, f'- {self.data[section][int(index) - 1]}', ln=True)
+                    pdf.set_x(60)
+                    pdf.cell(140, 10, f'- {id_language[index]}', ln=True)
 
-        write_section('Idiomas')
-        write_section('Cursos')
+        # Cursos
+        if 'Cursos' in self.data:
+            print('Selecione os Cursos para incluir no currículo:')
+            id_course = {i + 1: item for i, item in enumerate(self.data['Cursos'])}
+            for key, value in id_course.items():
+                print(f'{key}. {value}')
+            selected_indices = input('Digite os números dos cursos (separados por vírgula): ').split(',')
+            selected_indices = [int(index.strip()) for index in selected_indices if index.strip()]
+            if selected_indices:
+                pdf.set_font('Helvetica', size=12, style='B')
+                pdf.set_y(pdf.get_y() + 5)
+                pdf.set_x(60)
+                pdf.cell(140, 10, 'Cursos', ln=True)
+                for index in selected_indices:
+                    pdf.set_font('Helvetica', size=12)
+                    pdf.set_x(60)
+                    pdf.cell(140, 5, id_course[index], ln=True)
+                    pdf.set_font('Helvetica', size=12, style='I')
+                    pdf.set_x(60)
+                    pdf.cell(140, 10, self.data['Cursos'][id_course[index]], ln=True)
+                    pdf.set_y(pdf.get_y() + 5)
 
         pdf.output('curriculo.pdf')
         print('PDF gerado com sucesso!')
