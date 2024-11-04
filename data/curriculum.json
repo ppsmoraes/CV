@@ -23,19 +23,19 @@
             "Nome": "Coordenador de processos digitais",
             "Per\u00edodo": "jan/24 - jun/24",
             "Empresa": "Concentrix",
-            "Resumo": "Coordena\u00e7\u00e3o de equipe de trabalho para implanta\u00e7\u00e3o e manuten\u00e7\u00e3o de URAs e chatbots. Acompanhamento do funcionamento de fluxos e das APIs."
+            "Resumo": "Coordena\u00e7\u00e3o de equipe de trabalho para implanta\u00e7\u00e3o e manuten\u00e7\u00e3o de URAs e chatbots. Acompanhamento do funcionamento de fluxos e das APIs. Cria\u00e7\u00e3o de CRUD para controle do fluxo de trabalho."
         },
         "Analista de Estrat\u00e9gia II Concentrix": {
             "Nome": "Analista de estrat\u00e9gias",
             "Per\u00edodo": "fev/23 - dez/23",
             "Empresa": "Webhelp",
-            "Resumo": "Cria\u00e7\u00e3o e acompanhamento de ETL de diversas fontes para a gera\u00e7\u00e3o de relat\u00f3rios consolidados. Controle de contrata\u00e7\u00e3o de pessoas. Planejamento da distribui\u00e7\u00e3o de operadores. Apresenta\u00e7\u00e3o de resultados operacionais usando storytelling de dados."
+            "Resumo": "Planejamento e controle de contrata\u00e7\u00e3o de pessoas em D-60 e D-45. Planejamento da distribui\u00e7\u00e3o de escala de hor\u00e1rios e folgas dos operadores. Apresenta\u00e7\u00e3o de resultados operacionais usando storytelling de dados."
         },
         "Analista de MIS": {
             "Nome": "Analista de MIS",
             "Per\u00edodo": "ago/22 - fev/23",
             "Empresa": "Webhelp",
-            "Resumo": "Cria\u00e7\u00e3o e manuten\u00e7\u00e3o de relat\u00f3rios em Excel e dashboards em power BI, com base de dados em SQL. Automatiza\u00e7\u00e3o de processos em python, SQL e VBA."
+            "Resumo": "Automatiza\u00e7\u00e3o de ETL advindos de diversas fontes para a gera\u00e7\u00e3o de relat\u00f3rios consolidados, utilizando python, SQL e VBA, reduzindo o trabalho manual em mais de 2 horas di\u00e1rias. Cria\u00e7\u00e3o e manuten\u00e7\u00e3o de relat\u00f3rios em Excel e dashboards em power BI, com base de dados em SQL."
         },
         "Analista de Estrat\u00e9gia I Services": {
             "Nome": "Analista de estrat\u00e9gias",
@@ -46,6 +46,7 @@
     },
     "Cursos": {
         "Matem\u00e1tica - Bacharelado": "UFOP (2023 - Atualmente)",
+        "Power BI Completo - Do B\u00e1sico ao Avan\u00e7ado": "Udemy (2022)",
         "Engenharia de Produ\u00e7\u00e3o (Incompleta)": "UFCG (2013 - 2017)"
     }
 }

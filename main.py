@@ -158,7 +158,7 @@ class Curriculum:
                 pdf.set_font('Helvetica', size=12, style='B')
                 pdf.set_y(pdf.get_y() + 5)
                 pdf.set_x(60)
-                pdf.cell(140, 10, 'Tecnologias', ln=True)
+                pdf.cell(140, 5, 'Tecnologias', ln=True)
                 pdf.set_font('Helvetica', size=12)
                 pdf.set_x(60)
                 tecnologies = ', '.join([id_tec[i] for i in selected_indices])
@@ -176,7 +176,7 @@ class Curriculum:
                 pdf.set_y(pdf.get_y() + 5)
                 pdf.set_x(60)
                 pdf.set_font('Helvetica', size=12, style='B')
-                pdf.cell(140, 10, 'Experiências', ln=True)
+                pdf.cell(140, 5, 'Experiências', ln=True)
                 for index in selected_indices:
                     pdf.set_x(60)
                     pdf.set_font('Helvetica', size=12)
@@ -206,7 +206,7 @@ class Curriculum:
                 pdf.set_font('Helvetica', size=12, style='B')
                 pdf.set_y(pdf.get_y() + 5)
                 pdf.set_x(60)
-                pdf.cell(140, 10, 'Idiomas', ln=True)
+                pdf.cell(140, 5, 'Idiomas', ln=True)
                 for index in selected_indices:
                     pdf.set_font('Helvetica', size=12)
                     pdf.set_x(60)
@@ -224,7 +224,7 @@ class Curriculum:
                 pdf.set_font('Helvetica', size=12, style='B')
                 pdf.set_y(pdf.get_y() + 5)
                 pdf.set_x(60)
-                pdf.cell(140, 10, 'Cursos', ln=True)
+                pdf.cell(140, 5, 'Cursos', ln=True)
                 for index in selected_indices:
                     pdf.set_font('Helvetica', size=12)
                     pdf.set_x(60)
