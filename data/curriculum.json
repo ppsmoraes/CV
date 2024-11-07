@@ -1,0 +1,51 @@
+{
+    "Nome": "Pablo Moraes",
+    "Resumo": "Desenvolvedor com mais de 2 anos de experi\u00eancia com programa\u00e7\u00e3o em python e automa\u00e7\u00e3o de processos ETL. Conhecimento na \u00e1rea de call center receptivo, especialmente no setor banc\u00e1rio. Confort\u00e1vel trabalhando com n\u00fameros e f\u00f3rmulas matem\u00e1ticas.",
+    "Contato": {
+        "Github": "github.com/ppsmoraes",
+        "Telefone": "(41) 99784-1193",
+        "Email": "ppsmoraes@gmail.com",
+        "Linkedin": "linkedin.com/in/ppsmoraes"
+    },
+    "Idiomas": [
+        "Ingl\u00eas",
+        "Portugu\u00eas"
+    ],
+    "Tecnologias": [
+        "Python",
+        "SQL",
+        "Microsoft Excel",
+        "Power BI",
+        "Looker Studio"
+    ],
+    "Experi\u00eancias": {
+        "Coordenador Concentrix": {
+            "Nome": "Coordenador de processos digitais",
+            "Per\u00edodo": "jan/24 - jun/24",
+            "Empresa": "Concentrix",
+            "Resumo": "Coordena\u00e7\u00e3o de equipe de trabalho para implanta\u00e7\u00e3o e manuten\u00e7\u00e3o de URAs e chatbots. Acompanhamento do funcionamento de fluxos e das APIs."
+        },
+        "Analista de Estrat\u00e9gia II Concentrix": {
+            "Nome": "Analista de estrat\u00e9gias",
+            "Per\u00edodo": "fev/23 - dez/23",
+            "Empresa": "Webhelp",
+            "Resumo": "Cria\u00e7\u00e3o e acompanhamento de ETL de diversas fontes para a gera\u00e7\u00e3o de relat\u00f3rios consolidados. Controle de contrata\u00e7\u00e3o de pessoas. Planejamento da distribui\u00e7\u00e3o de operadores. Apresenta\u00e7\u00e3o de resultados operacionais usando storytelling de dados."
+        },
+        "Analista de MIS": {
+            "Nome": "Analista de MIS",
+            "Per\u00edodo": "ago/22 - fev/23",
+            "Empresa": "Webhelp",
+            "Resumo": "Cria\u00e7\u00e3o e manuten\u00e7\u00e3o de relat\u00f3rios em Excel e dashboards em power BI, com base de dados em SQL. Automatiza\u00e7\u00e3o de processos em python, SQL e VBA."
+        },
+        "Analista de Estrat\u00e9gia I Services": {
+            "Nome": "Analista de estrat\u00e9gias",
+            "Per\u00edodo": "fev/22 - ago/22",
+            "Empresa": "Grupo Services",
+            "Resumo": "Gera\u00e7\u00e3o de relat\u00f3rios de resultados parciais e fechamentos do dia anterior. Apresenta\u00e7\u00e3o de resultados operacionais usando storytelling de dados consolidados."
+        }
+    },
+    "Cursos": {
+        "Matem\u00e1tica - Bacharelado": "UFOP (2023 - Atualmente)",
+        "Engenharia de Produ\u00e7\u00e3o (Incompleta)": "UFCG (2013 - 2017)"
+    }
+}
