@@ -16,7 +16,12 @@
         "SQL",
         "Microsoft Excel",
         "Power BI",
-        "Looker Studio"
+        "Looker Studio",
+        "ETL",
+        "NoSQL",
+        "Git",
+        "GitHub",
+        "GitHub Actions"
     ],
     "Experi\u00eancias": {
         "Coordenador Concentrix": {
@@ -46,6 +51,7 @@
     },
     "Cursos": {
         "Matem\u00e1tica - Bacharelado": "UFOP (2023 - Atualmente)",
+        "Power BI Completo - Do B\u00e1sico ao Avan\u00e7ado": "Udemy (2022)",
         "Engenharia de Produ\u00e7\u00e3o (Incompleta)": "UFCG (2013 - 2017)"
     }
 }
