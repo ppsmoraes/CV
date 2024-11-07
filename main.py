@@ -4,7 +4,7 @@ from fpdf import FPDF
 
 
 class Curriculum:
-    def __init__(self, filename=r'data/curriculum.json'):
+    def __init__(self, filename=os.path.join('data', 'curriculum.json')):
         self.filename = filename
         self.data = self.load_data()
 
@@ -87,15 +87,15 @@ class Curriculum:
         pdf.rect(0, 0, 55, 297, 'F')  # (A4: 210x297 mm)
 
         # Foto
-        if os.path.exists(r'Images\foto.png'):
-            pdf.image(r'Images\foto.png', x=5, y=8, w=45)  # x, y e largura em mm
+        if os.path.exists(os.path.join('Images', 'foto.png')):
+            pdf.image(os.path.join('Images', 'foto.png'), x=5, y=8, w=45)  # x, y e largura em mm
 
         largura_coluna: float = 55 - 2 * pdf.l_margin
 
         def add_contato(subcategory: str, use_link: bool = False):
             if subcategory in self.data['Contato']:
-                if os.path.exists(rf'Images\{subcategory}.png'):
-                    pdf.image(rf'Images\{subcategory}.png', x=5, y=pdf.get_y() + 2.5, h=5)  # y centraliza com o texto
+                if os.path.exists(os.path.join('Images', subcategory + '.png')):
+                    pdf.image(os.path.join('Images', subcategory + '.png'), x=5, y=pdf.get_y() + 2.5, h=5)  # y centraliza com o texto
                 if use_link:
                     _font_style: str = 'U'
                     _color: tuple[int, int, int] = 1, 75, 160
@@ -162,7 +162,7 @@ class Curriculum:
                 pdf.set_font('Helvetica', size=12)
                 pdf.set_x(60)
                 tecnologies = ', '.join([id_tec[i] for i in selected_indices])
-                pdf.cell(140, 10, tecnologies, ln=True)
+                pdf.multi_cell(140, 10, tecnologies)
 
         # Experiências
         if 'Experiências' in self.data:
