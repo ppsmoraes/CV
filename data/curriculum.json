@@ -28,13 +28,13 @@
     "Experi\u00eancias": {
         "Coordenador Concentrix": {
             "Nome": "Coordenador de processos digitais",
-            "Per\u00edodo": "jan/24 - jun/24",
+            "Per\u00edodo": "dez/23 - jun/24",
             "Empresa": "Concentrix",
-            "Resumo": "Coordena\u00e7\u00e3o de equipe de trabalho para implanta\u00e7\u00e3o e manuten\u00e7\u00e3o de URAs e chatbots. Acompanhamento do funcionamento de fluxos e das APIs. Cria\u00e7\u00e3o de CRUD para controle do fluxo de trabalho."
+            "Resumo": "Coordena\u00e7\u00e3o de equipe de trabalho para implanta\u00e7\u00e3o e manuten\u00e7\u00e3o de URAs e chatbots. Acompanhamento do funcionamento de fluxos e das APIs."
         },
         "Analista de Estrat\u00e9gia II Concentrix": {
             "Nome": "Analista de estrat\u00e9gias",
-            "Per\u00edodo": "fev/23 - dez/23",
+            "Per\u00edodo": "fev/23 - nov/23",
             "Empresa": "Webhelp",
             "Resumo": "Planejamento e controle de contrata\u00e7\u00e3o de pessoas em D-60 e D-45. Planejamento da distribui\u00e7\u00e3o de escala de hor\u00e1rios e folgas dos operadores. Apresenta\u00e7\u00e3o de resultados operacionais usando storytelling de dados."
         },
@@ -49,6 +49,18 @@
             "Per\u00edodo": "fev/22 - ago/22",
             "Empresa": "Grupo Services",
             "Resumo": "Gera\u00e7\u00e3o de relat\u00f3rios de resultados parciais e fechamentos do dia anterior. Apresenta\u00e7\u00e3o de resultados operacionais usando storytelling de dados consolidados."
+        },
+        "Professor de Matem\u00e1tica": {
+            "Nome": "Professor de Matem\u00e1tica",
+            "Per\u00edodo": "ago/19 - dez/20",
+            "Empresa": "Secretaria Estadual de Educa\u00e7\u00e3o do Estado do Paran\u00e1",
+            "Resumo": "Planejamento e ensino da disciplina de matem\u00e1tica para turmas do ensino fundamental e m\u00e9dio, incluindo educa\u00e7\u00e3o de jovens e adultos."
+        },
+        "Agente de atendimento Oi": {
+            "Nome": "Agente de atendimento e neg\u00f3cios",
+            "Per\u00edodo": "dez/17 - mar/18",
+            "Empresa": "Brasil Telecom Call Center",
+            "Resumo": "Vendas ativas de plano com internet, telefone fixo, TV por assinatura e telefone m\u00f3vel."    
         }
     },
     "Cursos": {

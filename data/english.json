@@ -1,0 +1,59 @@
+{
+    "Name": "Pablo Moraes",
+    "Summary": "Developer with more than 2 years of experience in Python programming and ETL process automation. Knowledge in the inbound call center area, especially in the banking sector. Comfortable working with numbers and mathematical formulas.",
+    "Contact": {
+        "Github": "github.com/ppsmoraes",
+        "Phone": "(41) 99784-1193",
+        "Email": "ppsmoraes@gmail.com",
+        "Linkedin": "linkedin.com/in/ppsmoraes"
+    },
+    "Languages": [
+        "English",
+        "Portuguese"
+    ],
+    "Technologies": [
+        "Python",
+        "SQL",
+        "Microsoft Excel",
+        "Power BI",
+        "Looker Studio",
+        "ETL",
+        "NoSQL",
+        "Git",
+        "GitHub",
+        "GitHub Actions",
+        "Linux",
+        "PostgreSQL"
+    ],
+    "Experience": {
+        "Coordinator Concentrix": {
+            "Title": "Digital Processes Coordinator",
+            "Period": "Dec/23 - Jun/24",
+            "Company": "Concentrix",
+            "Summary": "Implementation and maintenance of IVRs and chatbots. Monitoring of workflow and APIs."
+        },
+        "Strategy Analyst II Concentrix": {
+            "Title": "Strategy Analyst",
+            "Period": "Feb/23 - Nov/23",
+            "Company": "Webhelp",
+            "Summary": "Planning and control of hiring processes for D-60 and D-45. Planning of shift schedules and operator time-offs. Presentation of operational results using data storytelling."
+        },
+        "MIS Analyst": {
+            "Title": "MIS Analyst",
+            "Period": "Aug/22 - Feb/23",
+            "Company": "Webhelp",
+            "Summary": "Automation of ETL processes from various sources for the generation of consolidated reports, using Python, SQL, and VBA, reducing manual work by over 2 hours daily. Creation and maintenance of Excel reports and Power BI dashboards, with SQL databases."
+        },
+        "Strategy Analyst I Services": {
+            "Title": "Strategy Analyst",
+            "Period": "Feb/22 - Aug/22",
+            "Company": "Grupo Services",
+            "Summary": "Generation of partial results reports and previous day closings. Presentation of operational results using consolidated data storytelling."
+        }
+    },
+    "Education": {
+        "Mathematics - Bachelor's Degree": "UFOP (2023 - Present)",
+        "Power BI Complete - From Basic to Advanced": "Udemy (2022)",
+        "Production Engineering (Incomplete)": "UFCG (2013 - 2017)"
+    }
+}

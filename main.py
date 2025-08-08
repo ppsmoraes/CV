@@ -234,7 +234,7 @@ class Curriculum:
                     pdf.cell(140, 10, self.data['Cursos'][id_course[index]], ln=True)
                     pdf.set_y(pdf.get_y() + 5)
 
-        pdf.output('curriculo.pdf')
+        pdf.output('Pablo_Moraes_CV.pdf')
         print('PDF gerado com sucesso!')
 
 
