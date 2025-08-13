@@ -158,11 +158,11 @@ class Curriculum:
                 pdf.set_font('Helvetica', size=12, style='B')
                 pdf.set_y(pdf.get_y() + 5)
                 pdf.set_x(60)
-                pdf.cell(140, 5, 'Tecnologias', ln=True)
+                pdf.cell(140, 10, 'Tecnologias', ln=True)
                 pdf.set_font('Helvetica', size=12)
                 pdf.set_x(60)
                 tecnologies = ', '.join([id_tec[i] for i in selected_indices])
-                pdf.cell(140, 10, tecnologies, ln=True)
+                pdf.cell(140, 5, tecnologies, ln=True)
 
         # Experiências
         if 'Experiências' in self.data:
@@ -176,7 +176,7 @@ class Curriculum:
                 pdf.set_y(pdf.get_y() + 5)
                 pdf.set_x(60)
                 pdf.set_font('Helvetica', size=12, style='B')
-                pdf.cell(140, 5, 'Experiências', ln=True)
+                pdf.cell(140, 10, 'Experiências', ln=True)
                 for index in selected_indices:
                     pdf.set_x(60)
                     pdf.set_font('Helvetica', size=12)
@@ -204,13 +204,12 @@ class Curriculum:
             selected_indices = [int(index.strip()) for index in selected_indices if index.strip()]
             if selected_indices:
                 pdf.set_font('Helvetica', size=12, style='B')
-                pdf.set_y(pdf.get_y() + 5)
                 pdf.set_x(60)
-                pdf.cell(140, 5, 'Idiomas', ln=True)
+                pdf.cell(140, 10, 'Idiomas', ln=True)
                 for index in selected_indices:
                     pdf.set_font('Helvetica', size=12)
                     pdf.set_x(60)
-                    pdf.cell(140, 10, f'- {id_language[index]}', ln=True)
+                    pdf.cell(140, 5, f'- {id_language[index]}', ln=True)
 
         # Cursos
         if 'Cursos' in self.data:
@@ -224,14 +223,14 @@ class Curriculum:
                 pdf.set_font('Helvetica', size=12, style='B')
                 pdf.set_y(pdf.get_y() + 5)
                 pdf.set_x(60)
-                pdf.cell(140, 5, 'Cursos', ln=True)
+                pdf.cell(140, 10, 'Cursos', ln=True)
                 for index in selected_indices:
                     pdf.set_font('Helvetica', size=12)
                     pdf.set_x(60)
                     pdf.cell(140, 5, id_course[index], ln=True)
                     pdf.set_font('Helvetica', size=12, style='I')
                     pdf.set_x(60)
-                    pdf.cell(140, 10, self.data['Cursos'][id_course[index]], ln=True)
+                    pdf.cell(140, 5, self.data['Cursos'][id_course[index]], ln=True)
                     pdf.set_y(pdf.get_y() + 5)
 
         pdf.output('Pablo_Moraes_CV.pdf')
