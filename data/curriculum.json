@@ -1,54 +1,50 @@
 {
     "Nome": "Pablo Moraes",
-    "Resumo": "Desenvolvedor com mais de 2 anos de experi\u00eancia com programa\u00e7\u00e3o em python e automa\u00e7\u00e3o de processos ETL. Conhecimento na \u00e1rea de call center receptivo, especialmente no setor banc\u00e1rio. Confort\u00e1vel trabalhando com n\u00fameros e f\u00f3rmulas matem\u00e1ticas.",
+    "Resumo": "Desenvolvedor com mais de 2 anos de experi\u00eancia com programa\u00e7\u00e3o em python e automa\u00e7\u00e3o de processos ETL. Conhecimento na \u00e1rea de call center receptivo, especialmente no setor banc\u00e1rio. Confort\u00e1vel trabalhando com n\u00fameros e f\u00f3rmulas matem\u00e1ticas. Experi\u00eancia em lideran\u00e7a de equipes, organiza\u00e7\u00e3o de escalas, treinamentos e acompanhamento de indicadores de desempenho.",
     "Contato": {
         "Github": "github.com/ppsmoraes",
         "Telefone": "(41) 99784-1193",
         "Email": "ppsmoraes@gmail.com",
-        "Linkedin": "linkedin.com/in/ppsmoraes"
+        "Linkedin": "linkedin.com/in/ppsmoraes",
+        "Localidade": "Mariana-MG"
     },
     "Idiomas": [
-        "Ingl\u00eas",
-        "Portugu\u00eas"
+        "Ingl\u00eas: Fluente",
+        "Portugu\u00eas: Nativo"
     ],
     "Tecnologias": [
         "Python",
         "SQL",
+        "PostgreSQL",
+        "NoSQL",
         "Microsoft Excel",
+        "VBA",
         "Power BI",
         "Looker Studio",
         "ETL",
-        "NoSQL",
         "Git",
         "GitHub",
-        "GitHub Actions",
-        "Linux",
-        "PostgreSQL"
+        "Linux"
     ],
     "Experi\u00eancias": {
         "Coordenador Concentrix": {
             "Nome": "Coordenador de processos digitais",
-            "Per\u00edodo": "dez/23 - jun/24",
+            "Per\u00edodo": "dez/23 - jul/24",
             "Empresa": "Concentrix",
-            "Resumo": "Coordena\u00e7\u00e3o de equipe de trabalho para implanta\u00e7\u00e3o e manuten\u00e7\u00e3o de URAs e chatbots. Acompanhamento do funcionamento de fluxos e das APIs."
-        },
-        "Analista de Estrat\u00e9gia II Concentrix": {
-            "Nome": "Analista de estrat\u00e9gias",
-            "Per\u00edodo": "fev/23 - nov/23",
-            "Empresa": "Webhelp",
-            "Resumo": "Planejamento e controle de contrata\u00e7\u00e3o de pessoas em D-60 e D-45. Planejamento da distribui\u00e7\u00e3o de escala de hor\u00e1rios e folgas dos operadores. Apresenta\u00e7\u00e3o de resultados operacionais usando storytelling de dados."
+            "Resumo": "Gera\u00e7\u00e3o de relat\u00f3rios, utilizando storytelling para apresenta\u00e7\u00e3o de resultados operacionais. Planejamento e controle de contrata\u00e7\u00e3o em D-60 e D-45, al\u00e9m da distribui\u00e7\u00e3o de escalas de hor\u00e1rios e folgas de operadores. Respons\u00e1vel por feedbacks dos colaboradores e garantia do bom atendimento ao cliente.",
+            "Resumo 2": "Coordena\u00e7\u00e3o de equipe para implanta\u00e7\u00e3o e manuten\u00e7\u00e3o de URAs e chatbots, com acompanhamento de fluxos e APIs. Gera\u00e7\u00e3o de relat\u00f3rios, utilizando storytelling para apresenta\u00e7\u00e3o de resultados operacionais. Planejamento e controle de contrata\u00e7\u00e3o em D-60 e D-45, al\u00e9m da distribui\u00e7\u00e3o de escalas de hor\u00e1rios e folgas de operadores."
         },
         "Analista de MIS": {
             "Nome": "Analista de MIS",
-            "Per\u00edodo": "ago/22 - fev/23",
+            "Per\u00edodo": "nov/22 - nov/23",
             "Empresa": "Webhelp",
             "Resumo": "Automatiza\u00e7\u00e3o de ETL advindos de diversas fontes para a gera\u00e7\u00e3o de relat\u00f3rios consolidados, utilizando python, SQL e VBA, reduzindo o trabalho manual em mais de 2 horas di\u00e1rias. Cria\u00e7\u00e3o e manuten\u00e7\u00e3o de relat\u00f3rios em Excel e dashboards em power BI, com base de dados em SQL."
         },
-        "Analista de Estrat\u00e9gia I Services": {
-            "Nome": "Analista de estrat\u00e9gias",
-            "Per\u00edodo": "fev/22 - ago/22",
+        "Operador de teleatendimento receptivo": {
+            "Nome": "Operador de teleatendimento receptivo",
+            "Per\u00edodo": "jan/22 - out/22",
             "Empresa": "Grupo Services",
-            "Resumo": "Gera\u00e7\u00e3o de relat\u00f3rios de resultados parciais e fechamentos do dia anterior. Apresenta\u00e7\u00e3o de resultados operacionais usando storytelling de dados consolidados."
+            "Resumo": "Atendimento em central de suporte t\u00e9cnico de adquirentes de pagamentos."
         },
         "Professor de Matem\u00e1tica": {
             "Nome": "Professor de Matem\u00e1tica",
@@ -65,6 +61,7 @@
     },
     "Cursos": {
         "Matem\u00e1tica - Bacharelado": "UFOP (2023 - Atualmente)",
+        "Matem\u00e1tica - Licenciatura  (Incompleta)": "UTFPR (2017 - 2019)",
         "Power BI Completo - Do B\u00e1sico ao Avan\u00e7ado": "Udemy (2022)",
         "Engenharia de Produ\u00e7\u00e3o (Incompleta)": "UFCG (2013 - 2017)"
     }
