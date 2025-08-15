@@ -162,7 +162,7 @@ class Curriculum:
                 pdf.set_font('Helvetica', size=12)
                 pdf.set_x(60)
                 tecnologies = ', '.join([id_tec[i] for i in selected_indices])
-                pdf.cell(140, 5, tecnologies, ln=True)
+                pdf.multi_cell(140, 5, tecnologies)
 
         # Experiências
         if 'Experiências' in self.data:
