@@ -2,6 +2,10 @@
     "Nome": "Pablo Moraes",
     "Resumo": "Organiza\u00e7\u00e3o e precis\u00e3o para organizar sua rotina, controlar prazos e evitar retrabalho. Ao unir an\u00e1lise de dados e atendimento de qualidade, transformo informa\u00e7\u00f5es em tomadas de a\u00e7\u00e3o claras e fidelizo seus clientes.",
     "Resumo 2": "Desenvolvedor com mais de 2 anos de experi\u00eancia com programa\u00e7\u00e3o em python e automa\u00e7\u00e3o de processos ETL. Conhecimento na \u00e1rea de call center receptivo, especialmente no setor banc\u00e1rio. Confort\u00e1vel trabalhando com n\u00fameros e f\u00f3rmulas matem\u00e1ticas. Experi\u00eancia em lideran\u00e7a de equipes, organiza\u00e7\u00e3o de escalas, treinamentos e acompanhamento de indicadores de desempenho.",
+    "Resumo 3": "Desenvolvedor com mais de 2 anos de experi\u00eancia com programa\u00e7\u00e3o em python e automa\u00e7\u00e3o de processos ETL. Conhecimento na \u00e1rea de call center receptivo, especialmente no setor banc\u00e1rio. Confort\u00e1vel trabalhando com n\u00fameros e f\u00f3rmulas matem\u00e1ticas. Experi\u00eancia em lideran\u00e7a de equipes, organiza\u00e7\u00e3o de escalas, treinamentos e acompanhamento de indicadores de desempenho.",
+    "Resumo 4": "Profissional organizado e comunicativo, com experi\u00eancia em rotinas administrativas, suporte ao cliente e elabora\u00e7\u00e3o de relat\u00f3rios. Dom\u00ednio de ferramentas como Excel, Power BI e VBA, al\u00e9m de conhecimentos em CRM. Graduando em Matem\u00e1tica com habilidades anal\u00edticas e foco em efici\u00eancia operacional. Dispon\u00edvel para trabalho remoto.",
+    "Resumo 5": "Profissional com experi\u00eancia em atendimento ao cliente em diversos setores, incluindo varejo e e-commerce, com habilidades comprovadas em comunica\u00e7\u00e3o, organiza\u00e7\u00e3o e resolu\u00e7\u00e3o de problemas. Capacidade de trabalhar com sistemas e processos administrativos, demonstrando proatividade e aten\u00e7\u00e3o aos detalhes em ambientes din\u00e2micos.",
+    "Resumo 6": "Profissional com s\u00f3lida experi\u00eancia em atendimento ao cliente e suporte t\u00e9cnico nos setores banc\u00e1rio, de e-commerce, transporte a\u00e9reo e varejo, com atua\u00e7\u00e3o em m\u00faltiplos canais (e-mail, chat e telefone), sempre com foco na satisfa\u00e7\u00e3o do cliente e na efici\u00eancia operacional. Forte habilidade em comunica\u00e7\u00e3o, an\u00e1lise e resolu\u00e7\u00e3o de problemas, com hist\u00f3rico em lideran\u00e7a de equipes e sugest\u00e3o de melhorias em processos.",
     "Contato": {
         "Github": "github.com/ppsmoraes",
         "Telefone": "(41) 99784-1193",
@@ -44,15 +48,14 @@
         "Analista de MIS": {
             "Nome": "Analista de MIS",
             "Per\u00edodo": "nov/22 - nov/23",
-            "Empresa": "Webhelp",
-            "Resumo": "Automatiza\u00e7\u00e3o de ETL advindos de diversas fontes para a gera\u00e7\u00e3o de relat\u00f3rios consolidados, utilizando python, SQL e VBA, reduzindo o trabalho manual em mais de 2 horas di\u00e1rias. Cria\u00e7\u00e3o e manuten\u00e7\u00e3o de relat\u00f3rios em Excel e dashboards em power BI, com base de dados em SQL."
+            "Empresa": "Concentrix",
+            "Resumo": "Automatiza\u00e7\u00e3o de ETL advindos de diversas fontes (Zendesk, Salesforce, Freshdesk, ReclameAqui, Five9, Avaya, Genesys) para a gera\u00e7\u00e3o de relat\u00f3rios consolidados, utilizando python, SQL e VBA, reduzindo o trabalho manual em mais de 2 horas di\u00e1rias. Cria\u00e7\u00e3o e manuten\u00e7\u00e3o de relat\u00f3rios em Excel e dashboards em power BI, com base de dados em SQL."
         },
         "Operador de teleatendimento receptivo": {
-            "Nome": "Operador de teleatendimento receptivo",
+            "Nome": "Operador de Teleatendimento Receptivo - Suporte Técnico",
             "Per\u00edodo": "jan/22 - out/22",
             "Empresa": "Grupo Services",
-            "Resumo": "Atendimento em central de suporte t\u00e9cnico a clientes de adquirente de pagamentos, realzando diagn\u00f3stico, resolu\u00e7\u00e3o de problemas em terminais de pagamento (POS) e, quando necess\u00e1rio, agendamento de visita t\u00edcnica no loocal.",
-            "Resumo 2": "Atendimento em central de suporte t\u00e9cnico de adquirentes de pagamentos."
+            "Resumo": "Atendimento em central de suporte t\u00e9cnico a clientes de adquirente de pagamentos, realzando diagn\u00f3stico, resolu\u00e7\u00e3o de problemas em terminais de pagamento (POS) e, quando necess\u00e1rio, agendamento de visita t\u00edcnica no loocal."
         },
         "Professor de Matem\u00e1tica": {
             "Nome": "Professor de Matem\u00e1tica",
@@ -61,7 +64,7 @@
             "Resumo": "Planejamento e ensino da disciplina de matem\u00e1tica para turmas do ensino fundamental e m\u00e9dio, incluindo educa\u00e7\u00e3o de jovens e adultos."
         },
         "Agente de atendimento Oi": {
-            "Nome": "Agente de atendimento e neg\u00f3cios",
+            "Nome": "Operador de Teleatendimento Ativo - Agente de vendas",
             "Per\u00edodo": "dez/17 - mar/18",
             "Empresa": "Brasil Telecom Call Center",
             "Resumo": "Vendas ativas de plano com internet, telefone fixo, TV por assinatura e telefone m\u00f3vel."    
