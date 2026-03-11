@@ -1,6 +1,7 @@
 {
     "Nome": "Pablo Moraes",
-    "Resumo": "Desenvolvedor com mais de 2 anos de experi\u00eancia com programa\u00e7\u00e3o em python e automa\u00e7\u00e3o de processos ETL. Conhecimento na \u00e1rea de call center receptivo, especialmente no setor banc\u00e1rio. Confort\u00e1vel trabalhando com n\u00fameros e f\u00f3rmulas matem\u00e1ticas. Experi\u00eancia em lideran\u00e7a de equipes, organiza\u00e7\u00e3o de escalas, treinamentos e acompanhamento de indicadores de desempenho.",
+    "Resumo": "Organiza\u00e7\u00e3o e precis\u00e3o para organizar sua rotina, controlar prazos e evitar retrabalho. Ao unir an\u00e1lise de dados e atendimento de qualidade, transformo informa\u00e7\u00f5es em tomadas de a\u00e7\u00e3o claras e fidelizo seus clientes.",
+    "Resumo 2": "Desenvolvedor com mais de 2 anos de experi\u00eancia com programa\u00e7\u00e3o em python e automa\u00e7\u00e3o de processos ETL. Conhecimento na \u00e1rea de call center receptivo, especialmente no setor banc\u00e1rio. Confort\u00e1vel trabalhando com n\u00fameros e f\u00f3rmulas matem\u00e1ticas. Experi\u00eancia em lideran\u00e7a de equipes, organiza\u00e7\u00e3o de escalas, treinamentos e acompanhamento de indicadores de desempenho.",
     "Contato": {
         "Github": "github.com/ppsmoraes",
         "Telefone": "(41) 99784-1193",
@@ -27,12 +28,18 @@
         "Linux"
     ],
     "Experi\u00eancias": {
+        "Operador de caixa": {
+            "Nome": "Operador de caixa",
+            "Per\u00edodo": "jan/26 - atualmente",
+            "Empresa": "Farm\u00e1cia Indiana",
+            "Resumo": "Respons\u00e1vel pela abertura, fechamento e sangria de caixa. Atuando tamb\u00e9m na reposi\u00e7\u00e3o de mercadorias e limpeza do setor. Combinando atendimento de excel\u00eancia com foco em resultados, contribuo para a fideliza\u00e7\u00e3o de clientes e cumprimento de metas, como vendas direcionadas e aumento da taxa de cadastros."
+        },
         "Coordenador Concentrix": {
             "Nome": "Coordenador de processos digitais",
             "Per\u00edodo": "dez/23 - jul/24",
             "Empresa": "Concentrix",
-            "Resumo": "Gera\u00e7\u00e3o de relat\u00f3rios, utilizando storytelling para apresenta\u00e7\u00e3o de resultados operacionais. Planejamento e controle de contrata\u00e7\u00e3o em D-60 e D-45, al\u00e9m da distribui\u00e7\u00e3o de escalas de hor\u00e1rios e folgas de operadores. Respons\u00e1vel por feedbacks dos colaboradores e garantia do bom atendimento ao cliente.",
-            "Resumo 2": "Coordena\u00e7\u00e3o de equipe para implanta\u00e7\u00e3o e manuten\u00e7\u00e3o de URAs e chatbots, com acompanhamento de fluxos e APIs. Gera\u00e7\u00e3o de relat\u00f3rios, utilizando storytelling para apresenta\u00e7\u00e3o de resultados operacionais. Planejamento e controle de contrata\u00e7\u00e3o em D-60 e D-45, al\u00e9m da distribui\u00e7\u00e3o de escalas de hor\u00e1rios e folgas de operadores."
+            "Resumo": "Coordena\u00e7\u00e3o de equipe para implanta\u00e7\u00e3o e manuten\u00e7\u00e3o de URAs e chatbots, com acompanhamento de fluxos e APIs. Gera\u00e7\u00e3o de relat\u00f3rios, utilizando storytelling para apresenta\u00e7\u00e3o de resultados operacionais. Planejamento e controle de contrata\u00e7\u00e3o em D-60 e D-45, al\u00e9m da distribui\u00e7\u00e3o de escalas de hor\u00e1rios e folgas de operadores.",
+            "Resumo 2": "Gera\u00e7\u00e3o de relat\u00f3rios, utilizando storytelling para apresenta\u00e7\u00e3o de resultados operacionais. Planejamento e controle de contrata\u00e7\u00e3o em D-60 e D-45, al\u00e9m da distribui\u00e7\u00e3o de escalas de hor\u00e1rios e folgas de operadores. Respons\u00e1vel por feedbacks dos colaboradores e garantia do bom atendimento ao cliente."
         },
         "Analista de MIS": {
             "Nome": "Analista de MIS",
@@ -44,7 +51,8 @@
             "Nome": "Operador de teleatendimento receptivo",
             "Per\u00edodo": "jan/22 - out/22",
             "Empresa": "Grupo Services",
-            "Resumo": "Atendimento em central de suporte t\u00e9cnico de adquirentes de pagamentos."
+            "Resumo": "Atendimento em central de suporte t\u00e9cnico a clientes de adquirente de pagamentos, realzando diagn\u00f3stico, resolu\u00e7\u00e3o de problemas em terminais de pagamento (POS) e, quando necess\u00e1rio, agendamento de visita t\u00edcnica no loocal.",
+            "Resumo 2": "Atendimento em central de suporte t\u00e9cnico de adquirentes de pagamentos."
         },
         "Professor de Matem\u00e1tica": {
             "Nome": "Professor de Matem\u00e1tica",
@@ -61,8 +69,8 @@
     },
     "Cursos": {
         "Matem\u00e1tica - Bacharelado": "UFOP (2023 - Atualmente)",
-        "Matem\u00e1tica - Licenciatura  (Incompleta)": "UTFPR (2017 - 2019)",
         "Power BI Completo - Do B\u00e1sico ao Avan\u00e7ado": "Udemy (2022)",
+        "Matem\u00e1tica - Licenciatura  (Incompleta)": "UTFPR (2017 - 2019)",
         "Engenharia de Produ\u00e7\u00e3o (Incompleta)": "UFCG (2013 - 2017)"
     }
 }
